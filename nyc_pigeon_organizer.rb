@@ -1,20 +1,68 @@
 require "pry"
 
 def nyc_pigeon_organizer(data)
-  final_results = data.each_with_object({}) do |(key, value), final_array|
-    value.each do |inner_keys, name|
-      name.each do |name|
-        if !final_array[name]
-          final_array[name] = {}
-        end
-        if !final_array[name][key]
-          !final_array[name][key] = []
-        end
-        final_array[name][key].push(inner_keys.to_s)
+  pigeon_list = {}
+  data.each do |key, value|
+   value.each do |new, names|
+     names.each do |name|
+      if !pigeon_list[name]
+      pigeon_list[name] = {}
+        end 
+        if !pigeon_list[name][value]
+          pigeon_list[name][value] =[]
+          end
+          pigeon_list[name][value] << new.to_s
+         end
       end
-    end
-  end
-end
+    end 
+    pigeon_list
+end 
+ 
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def nyc_pigeon_organizer(data)
+#   final_results = data.each_with_object({}) do |(key, value), final_array|
+#     value.each do |inner_keys, name|
+#       name.each do |name|
+#         if !final_array[name]
+#           final_array[name] = {}
+#         end
+#         if !final_array[name][key]
+#           !final_array[name][key] = []
+#         end
+#         final_array[name][key].push(inner_keys.to_s)
+#       end
+#     end
+#   end
+# end
 
 
 # def nyc_pigeon_organizer(data)
